@@ -1,476 +1,308 @@
-Snitch E-Commerce
+<div align="center">
 
-Snitch is a full-stack e-commerce application being built from scratch using React, Node.js, Express and MongoDB.
+# 🛍️ SNITCH E-COMMERCE
 
-The application is focused on a fashion e-commerce experience with user authentication, product management, seller functionality, cart and order management. Payment integration is planned for a later stage.
+### A full-stack fashion e-commerce application built from scratch
 
-The backend is being developed first. Once the APIs are ready, the React frontend will consume them.
+**Shop &nbsp;•&nbsp; Sell &nbsp;•&nbsp; Build &nbsp;•&nbsp; Learn**
 
-Features
+<br>
 
-Authentication
+![Node.js](https://img.shields.io/badge/Node.js-24.x-339933?style=for-the-badge&logo=node.js&logoColor=white)
+![Express](https://img.shields.io/badge/Express.js-5.x-000000?style=for-the-badge&logo=express&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
+![React](https://img.shields.io/badge/React-Frontend-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![JavaScript](https://img.shields.io/badge/JavaScript-ESM-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Status](https://img.shields.io/badge/Status-In%20Development-F59E0B?style=for-the-badge)
 
-User registration
+</div>
 
-User login
+---
 
-User logout
+## About the Project
 
-Get current logged-in user
+Snitch is a full-stack fashion e-commerce application being developed from scratch using React, Node.js, Express and MongoDB.
 
-JWT access token authentication
+The application is being designed around three main areas:
 
-Refresh token based session management
+| Customer | Seller | Platform |
+|---|---|---|
+| Browse products, manage cart and place orders | Manage products and inventory | Authentication, APIs, database and business logic |
 
-Password hashing with bcrypt
+The backend is being developed first. The React frontend will consume the REST APIs provided by the backend.
 
-Protected routes
+> **Current status:** The backend foundation is ready and authentication is the next major feature being implemented.
 
-Refresh token revocation
+---
 
-Users
+## Features
 
-User account
+<table>
+<tr>
+<td width="50%">
 
-User profile
+### 🔐 Authentication
 
-User roles
+- User registration
+- User login/logout
+- JWT access tokens
+- Refresh token sessions
+- HTTP-only refresh cookie
+- Protected routes
+- Password hashing with bcrypt
+- Refresh token revocation
 
-Authentication state
+</td>
+<td width="50%">
 
-Sellers
+### 👤 Users & Sellers
 
-Seller authentication
+- User accounts
+- User roles
+- Seller authentication
+- Seller product management
+- Role-based authorization
+- Product ownership checks
 
-Product creation
+</td>
+</tr>
 
-Product update
+<tr>
+<td width="50%">
 
-Product deletion
+### 📦 Products
 
-Seller-specific product management
+- Create product
+- Product listing
+- Product details
+- Update product
+- Delete product
+- Request validation
+- Seller ownership
 
-Role and ownership based authorization
+</td>
+<td width="50%">
 
-Products
+### 🛒 Cart & Orders
 
-Create product
+- Add to cart
+- Update quantity
+- Remove product
+- Cart total
+- Create orders
+- Order history
+- Order/payment status
 
-Get all products
+</td>
+</tr>
+</table>
 
-Get single product
+---
 
-Update product
+## Tech Stack
 
-Delete product
+### Backend
 
-Product validation
+| Technology | Purpose |
+|---|---|
+| Node.js | JavaScript runtime |
+| Express.js | REST API |
+| MongoDB Atlas | Database |
+| Mongoose | MongoDB ODM |
+| JWT | Authentication |
+| bcrypt | Password hashing |
+| express-validator | Request validation |
+| cookie-parser | Cookie handling |
+| Helmet | Security headers |
+| CORS | Cross-origin requests |
+| express-rate-limit | Rate limiting |
+| dotenv | Environment configuration |
 
-Product ownership
+### Frontend
 
-Cart
+| Technology | Purpose |
+|---|---|
+| React | User interface |
+| React Router | Client-side routing |
+| Axios | API communication |
+| CSS | Styling |
 
-Add product to cart
+### Development
 
-Update quantity
+Git • GitHub • VS Code • Nodemon • Postman
 
-Remove product
+---
 
-View cart
+## Project Structure
 
-Calculate cart total
-
-Orders
-
-Create order from cart
-
-Store ordered products
-
-Store quantity and price
-
-Store shipping information
-
-Track order status
-
-Track payment status
-
-View order history
-
-Payment
-
-Payment integration will be added after the core cart and order functionality is completed.
-
-Tech Stack
-
-Backend
-
-Node.js
-
-Express.js
-
-MongoDB
-
-Mongoose
-
-JSON Web Token (JWT)
-
-bcrypt
-
-express-validator
-
-cookie-parser
-
-CORS
-
-Helmet
-
-express-rate-limit
-
-dotenv
-
-Frontend
-
-React
-
-React Router
-
-Axios
-
-CSS
-
-Database
-
-MongoDB Atlas
-
-Mongoose
-
-Development
-
-Git
-
-GitHub
-
-VS Code
-
-Nodemon
-
-Postman
-
-Project Structure
-
+```text
 snitch-ecommerce/
 │
 ├── backend/
 │   ├── src/
 │   │   ├── app/
 │   │   │   └── app.js
+│   │   │
 │   │   ├── config/
 │   │   │   └── db.js
+│   │   │
 │   │   ├── middlewares/
+│   │   │
 │   │   ├── modules/
 │   │   │   ├── auth/
 │   │   │   ├── user/
 │   │   │   ├── product/
 │   │   │   ├── cart/
 │   │   │   └── order/
+│   │   │
 │   │   ├── utils/
+│   │   │
 │   │   └── server.js
-│   ├── .env
+│   │
 │   ├── .env.example
 │   ├── package.json
 │   └── package-lock.json
 │
 ├── frontend/
+│
 ├── .gitignore
 └── README.md
+```
 
-The backend uses a feature-based structure. Related files are kept inside their respective modules instead of putting all controllers, models and routes into separate large folders.
+### Feature-based structure
 
-For example:
+Related code is kept inside the module it belongs to instead of putting every model, controller and route into large global folders.
 
+Example:
+
+```text
 modules/
 └── product/
     ├── product.model.js
     ├── product.controller.js
     ├── product.routes.js
     └── product.validator.js
+```
 
-This keeps the code related to one feature together and makes the project easier to maintain as it grows.
+This keeps each feature easier to find, understand and maintain.
 
-Backend Architecture
+---
 
-The backend is a REST API built with Node.js and Express.
+## Backend Architecture
 
-MongoDB is used for data storage and Mongoose is used to define schemas and communicate with MongoDB.
+The backend follows a simple request flow:
 
-The basic request flow is:
-
-React Frontend
-      |
-      | HTTP Request
-      ↓
-Express API
-      |
-      ↓
-Middleware
-      |
-      ↓
-Route
-      |
-      ↓
-Controller
-      |
-      ↓
-Mongoose Model
-      |
-      ↓
-MongoDB
+```mermaid
+flowchart TD
+    A[React Frontend] -->|HTTP Request| B[Express API]
+    B --> C[Middleware]
+    C --> D[Route]
+    D --> E[Controller]
+    E --> F[Mongoose Model]
+    F --> G[(MongoDB)]
+```
 
 For protected routes:
 
-Request
-   ↓
-Authentication Middleware
-   ↓
-Verify Access Token
-   ↓
-Attach User
-   ↓
-Controller
-   ↓
-Database
+```mermaid
+flowchart TD
+    A[Client Request] --> B[Auth Middleware]
+    B --> C[Verify Access Token]
+    C --> D[Attach User to Request]
+    D --> E[Controller]
+    E --> F[(MongoDB)]
+```
 
-The backend is responsible for validating and processing requests instead of trusting values sent directly from the frontend.
+The frontend never connects directly to MongoDB. Database operations are handled by the backend.
 
-Backend Modules
+---
 
-Auth
+## Authentication
 
-Handles registration, login, refresh tokens, logout and current-user authentication.
+### API Endpoints
 
-User
+| Method | Endpoint | Purpose | Access |
+|---|---|---|---|
+| `POST` | `/api/auth/register` | Create account | Public |
+| `POST` | `/api/auth/login` | Login | Public |
+| `POST` | `/api/auth/refresh-token` | Get new access token | Refresh token |
+| `POST` | `/api/auth/logout` | End session | Authenticated |
+| `GET` | `/api/auth/me` | Get current user | Authenticated |
 
-Manages user information and roles.
+### Token Strategy
 
-Product
+The application uses two tokens with different responsibilities.
 
-Handles product creation, listing, details, updates and deletion.
+**Access token**
 
-Cart
+- Short-lived
+- Used for protected API requests
+- Sent using the `Authorization` header
 
-Manages products and quantities associated with a user.
-
-Order
-
-Manages checkout orders, order status and payment status.
-
-Authentication
-
-Authentication APIs
-
-Method
-
-Endpoint
-
-Description
-
-Access
-
-POST
-
-/api/auth/register
-
-Create a new account
-
-Public
-
-POST
-
-/api/auth/login
-
-Login user
-
-Public
-
-POST
-
-/api/auth/refresh-token
-
-Generate a new access token
-
-Refresh Token
-
-POST
-
-/api/auth/logout
-
-Logout user
-
-Authenticated
-
-GET
-
-/api/auth/me
-
-Get current user
-
-Authenticated
-
-Registration
-
-Registration accepts:
-
-Name
-
-Email
-
-Password
-
-Confirm password
-
-The backend validates the request, checks for an existing email, hashes the password using bcrypt and creates the user.
-
-The password is never returned in the user response.
-
-Login
-
-The login process:
-
-Finds the user by email.
-
-Compares the submitted password with the stored bcrypt hash.
-
-Creates an access token.
-
-Creates a refresh token.
-
-Stores refresh token information server-side.
-
-Returns the access token.
-
-Stores the refresh token in an HTTP-only cookie.
-
-Access Token
-
-The access token is short-lived and is used for protected API requests.
-
+```http
 Authorization: Bearer <access-token>
+```
 
-Refresh Token
+**Refresh token**
 
-The refresh token is used to obtain a new access token after the access token expires.
+- Longer-lived
+- Used to obtain a new access token
+- Stored in an HTTP-only cookie
+- Tracked server-side so it can be revoked
 
-It is stored in an HTTP-only cookie so browser JavaScript cannot directly access it. The backend also keeps track of the refresh token/session so it can be invalidated during logout.
+### Authentication Flow
 
-Authentication Flow
+```mermaid
+flowchart LR
+    A[Register] --> B[Login]
+    B --> C[Access Token]
+    B --> D[Refresh Token]
+    C --> E[Protected API]
+    C -->|Expires| F[Refresh]
+    D --> F
+    F --> G[New Access Token]
+    D --> H[Logout]
+    H --> I[Invalidate Session]
+```
 
-Register
-   ↓
-Validate Input
-   ↓
-Check Existing Email
-   ↓
-Hash Password
-   ↓
-Create User
+Passwords are hashed using bcrypt and are never stored as plain text.
 
-Login
-   ↓
-Validate Credentials
-   ↓
-Compare Password
-   ↓
-Create Access Token
-   ↓
-Create Refresh Token
-   ↓
-Store Refresh Token
-   ↓
-Return Access Token
+---
 
-Access Token Expires
-   ↓
-Refresh Token Request
-   ↓
-Validate Refresh Token
-   ↓
-Check Server-side Session
-   ↓
-Create New Access Token
+## User Roles
 
-Logout
-   ↓
-Invalidate Refresh Token
-   ↓
-Clear Refresh Token Cookie
-   ↓
-Session Ends
+The application is designed around two main roles:
 
-User Roles
-
-The application will support:
-
+```text
 user
 seller
+```
 
-Authentication identifies the user. Authorization determines what that user is allowed to do.
+Authentication answers:
 
-A logged-in user should not automatically be allowed to update or delete another seller's products.
+> Who is this user?
 
-Product APIs
+Authorization answers:
 
-Method
+> What is this user allowed to do?
 
-Endpoint
+For example, being logged in does not automatically give a user permission to update or delete another seller's products.
 
-Description
+---
 
-Access
+## Product API
 
-POST
+| Method | Endpoint | Description | Access |
+|---|---|---|---|
+| `POST` | `/api/products` | Create product | Authenticated |
+| `GET` | `/api/products` | Get all products | Public |
+| `GET` | `/api/products/:id` | Get one product | Public |
+| `PUT` | `/api/products/:id` | Update product | Authenticated |
+| `DELETE` | `/api/products/:id` | Delete product | Authenticated |
 
-/api/products
+Expected product information includes:
 
-Create product
-
-Authenticated
-
-GET
-
-/api/products
-
-Get all products
-
-Public
-
-GET
-
-/api/products/:id
-
-Get single product
-
-Public
-
-PUT
-
-/api/products/:id
-
-Update product
-
-Authenticated
-
-DELETE
-
-/api/products/:id
-
-Delete product
-
-Authenticated
-
-The final authorization layer will ensure that product management actions are performed only by users who have permission to perform them.
-
-A product is expected to contain:
-
+```text
 name
 description
 price
@@ -480,44 +312,33 @@ quantity
 seller
 createdAt
 updatedAt
+```
 
-Cart
+Seller ownership and authorization will be applied as the seller functionality is implemented.
 
-The cart belongs to a user and stores products that the user intends to purchase.
+---
 
-Main operations:
+## Cart & Order Flow
 
-Add Product
-    ↓
+### Cart
+
+```text
+Product
+   ↓
+Add to Cart
+   ↓
 Update Quantity
-    ↓
+   ↓
 Remove Product
-    ↓
-View Cart
-    ↓
-Calculate Total
+   ↓
+Checkout
+```
 
-The backend will validate product information and quantities instead of trusting values calculated only by the frontend.
+The backend will validate product information and quantities instead of trusting totals calculated only by the frontend.
 
-Orders
+### Order
 
-The order module will manage checkout requests.
-
-An order is expected to contain:
-
-user
-products
-quantity
-price
-totalAmount
-shippingAddress
-paymentStatus
-orderStatus
-createdAt
-updatedAt
-
-Planned order flow:
-
+```text
 User
   ↓
 Cart
@@ -531,182 +352,135 @@ Payment
 Order Confirmation
   ↓
 Order History
+```
+
+An order is expected to contain:
+
+```text
+user
+products
+quantity
+price
+totalAmount
+shippingAddress
+paymentStatus
+orderStatus
+createdAt
+updatedAt
+```
+
+Cart, order and payment functionality will be implemented after the core authentication and product APIs.
+
+---
+
+## Frontend
+
+The frontend will be built with React and will communicate with the backend through HTTP APIs.
+
+Planned pages include:
+
+- Home
+- Product listing
+- Product details
+- Login
+- Register
+- Cart
+- Checkout
+- Orders
+- Profile
+- Seller dashboard
+- Product management
+
+Frontend/backend communication:
+
+```mermaid
+sequenceDiagram
+    participant UI as React
+    participant API as Express API
+    participant DB as MongoDB
+
+    UI->>API: HTTP Request
+    API->>API: Validate & Process
+    API->>DB: Database Operation
+    DB-->>API: Result
+    API-->>UI: JSON Response
+```
+
+---
+
+## Validation & Error Handling
+
+Request validation is handled with `express-validator`.
+
+Validation covers:
+
+- Request body
+- URL parameters
+- Query parameters
+- Email format
+- Password requirements
+- Required fields
+- Product price and quantity
+- MongoDB ObjectId
+
+Common HTTP responses:
+
+| Status | Meaning |
+|---|---|
+| `200` | OK |
+| `201` | Created |
+| `400` | Bad Request |
+| `401` | Unauthorized |
+| `403` | Forbidden |
+| `404` | Not Found |
+| `409` | Conflict |
+| `500` | Internal Server Error |
+
+---
+
+## Security
+
+The backend is being built with the following security practices:
+
+- bcrypt password hashing
+- Short-lived JWT access tokens
+- Refresh token management
+- HTTP-only refresh token cookies
+- Environment variables for secrets
+- Authentication middleware
+- Request validation
+- MongoDB ObjectId validation
+- Helmet
+- CORS
+- Rate limiting
+- Generic authentication error messages
 
-Order and payment functionality will be implemented after the core authentication, product and cart functionality.
+Sensitive configuration such as the MongoDB connection string and JWT secrets is kept outside the repository.
 
-Frontend
+---
 
-The frontend will be built using React.
+## Database
 
-Its main responsibility is to provide the user interface and communicate with the backend APIs.
-
-Planned pages and features include:
-
-Home
-
-Product listing
-
-Product details
-
-Login
-
-Register
-
-Cart
-
-Checkout
-
-Orders
-
-User profile
-
-Seller dashboard
-
-Product management
-
-The frontend will not connect directly to MongoDB.
-
-React
-  ↓
-HTTP Request
-  ↓
-Express API
-  ↓
-Controller
-  ↓
-MongoDB
-
-Validation
-
-Request validation is handled using express-validator.
-
-Validation will be applied to:
-
-Request body
-
-URL parameters
-
-Query parameters
-
-Examples include:
-
-Email format
-
-Password requirements
-
-Required fields
-
-Confirm password
-
-Product price
-
-Product quantity
-
-MongoDB ObjectId
-
-Invalid input will return a 400 Bad Request response.
-
-Error Handling
-
-The API will use standard HTTP status codes:
-
-Status
-
-Meaning
-
-200
-
-OK
-
-201
-
-Created
-
-400
-
-Bad Request
-
-401
-
-Unauthorized
-
-403
-
-Forbidden
-
-404
-
-Not Found
-
-409
-
-Conflict
-
-500
-
-Internal Server Error
-
-Examples:
-
-Invalid request data → 400
-
-Invalid login credentials → 401
-
-Authenticated but not allowed → 403
-
-Resource not found → 404
-
-Duplicate email → 409
-
-Security
-
-The backend is designed with:
-
-Password hashing with bcrypt
-
-Short-lived JWT access tokens
-
-Refresh token management
-
-HTTP-only refresh token cookies
-
-Environment variables for secrets
-
-Authentication middleware
-
-Request validation
-
-MongoDB ObjectId validation
-
-Helmet
-
-CORS
-
-Rate limiting
-
-Generic authentication error messages
-
-Sensitive configuration such as the MongoDB connection string and JWT secrets is kept in environment variables and is not committed to Git.
-
-Database
-
-MongoDB Atlas is used as the database.
-
-Mongoose is used to define schemas and communicate with MongoDB.
+MongoDB Atlas is used as the database and Mongoose is used to define schemas and communicate with MongoDB.
 
 Main data areas:
 
+```text
 users
 products
 carts
 orders
+```
 
-The corresponding collections will be managed through Mongoose models.
+The corresponding collections are managed through Mongoose models.
 
-Environment Variables
+---
 
-Create a .env file inside the backend directory.
+## Environment Variables
 
+Create a `.env` file inside `backend/`.
+
+```env
 PORT=3000
 
 MONGO_URI=your_mongodb_connection_string
@@ -714,107 +488,82 @@ MONGO_URI=your_mongodb_connection_string
 ACCESS_TOKEN_SECRET=your_access_token_secret
 
 REFRESH_TOKEN_SECRET=your_refresh_token_secret
+```
 
-Never commit the actual .env file to GitHub.
+The actual `.env` file must not be committed to GitHub.
 
-A .env.example file is included to show the required variables without exposing sensitive values.
+The repository contains `.env.example` without real credentials.
 
-Installation
+---
 
-Requirements
+## Getting Started
 
-Node.js
+### Requirements
 
-npm
+- Node.js
+- npm
+- Git
+- MongoDB Atlas account
 
-Git
+### Clone
 
-MongoDB Atlas account
-
-Clone the Repository
-
+```bash
 git clone https://github.com/umakantatech-eng/snitch-ecommerce.git
 cd snitch-ecommerce
+```
 
-Backend Setup
+### Backend
 
+```bash
 cd backend
 npm install
+```
 
-Create:
+Create `backend/.env`, add the required environment variables, then run:
 
-backend/.env
-
-Add the required environment variables and start the development server:
-
+```bash
 npm run dev
+```
 
-The backend currently runs on:
+Backend:
 
+```text
 http://localhost:3000
+```
 
-API Base URL
+### API Base
 
-During local development:
+```text
+http://localhost:3000/api
+```
 
-http://localhost:3000
+---
 
-API routes use the /api prefix.
+## API Testing
 
-Examples:
-
-POST /api/auth/register
-POST /api/auth/login
-POST /api/auth/refresh-token
-POST /api/auth/logout
-GET  /api/auth/me
-
-GET    /api/products
-GET    /api/products/:id
-POST   /api/products
-PUT    /api/products/:id
-DELETE /api/products/:id
-
-API Testing
-
-The APIs can be tested using Postman or another API testing tool.
+Postman can be used to test the API before connecting the frontend.
 
 Important cases include:
 
-User registration
+- Registration
+- Duplicate email
+- Login
+- Invalid credentials
+- Protected routes
+- Refresh token
+- Logout
+- Product CRUD
+- Validation errors
+- Invalid IDs
+- Unauthorized requests
 
-Duplicate email
+---
 
-Login
+## Development Workflow
 
-Invalid credentials
+The project is being developed feature by feature:
 
-Access token authentication
-
-Refresh token
-
-Logout
-
-Product creation
-
-Product listing
-
-Product update
-
-Product deletion
-
-Validation errors
-
-Invalid MongoDB IDs
-
-Unauthorized requests
-
-Development Workflow
-
-The project is being developed feature by feature.
-
-A typical backend feature follows:
-
+```text
 Requirement
     ↓
 Model / Schema
@@ -830,220 +579,103 @@ Middleware
 API Testing
     ↓
 Frontend Integration
+```
 
-This keeps the development process manageable and makes each feature easier to test before moving to the next one.
+The goal is to understand and test each feature before moving to the next one.
 
-Git and GitHub
+---
 
-Git is used for local version control and GitHub is used as the remote repository.
+## Current Status
+
+### Completed
+
+- Node.js project setup
+- Express setup
+- ES Modules
+- MongoDB Atlas connection
+- Mongoose setup
+- Environment configuration
+- bcrypt setup
+- JWT dependencies
+- Cookie parser
+- CORS
+- Helmet
+- express-validator
+- express-rate-limit
+- Nodemon
+- Feature-based project structure
+- Initial Git/GitHub setup
+
+### In Progress
+
+- User model
+- Authentication
+- Registration API
+- Login API
+- Access token
+- Refresh token
+- Authentication middleware
+
+### Planned
+
+- Complete authentication flow
+- Product CRUD
+- Seller authorization
+- React frontend
+- Cart
+- Orders
+- Payment integration
+- Deployment
+
+---
+
+## Future Features
+
+- Product search
+- Product filtering and sorting
+- Pagination
+- Categories
+- Product image upload
+- Wishlist
+- Multiple shipping addresses
+- Seller dashboard
+- Order management
+- Payment gateway
+- Email notifications
+- Admin functionality
+- Automated tests
+- Production logging
+- CI/CD
+
+---
+
+## Git Workflow
+
+```bash
+git status
+git add .
+git commit -m "your commit message"
+git push origin main
+```
 
 Repository:
 
 https://github.com/umakantatech-eng/snitch-ecommerce
 
-Basic workflow:
+---
 
-git status
-git add .
-git commit -m "your commit message"
-git push origin main
+## Project Goal
 
-Changes are committed in small steps so that individual features and fixes can be tracked.
+The goal is to build a complete e-commerce application while understanding how the frontend, backend, database and authentication system work together.
 
-Current Status
+The project is intentionally being developed incrementally rather than building everything at once.
 
-The project is currently under development.
+---
 
-Backend Setup Completed
+<div align="center">
 
-Node.js project setup
+### Built while learning full-stack development
 
-Express setup
+**React • Node.js • Express • MongoDB**
 
-ES Modules configuration
-
-MongoDB Atlas connection
-
-Mongoose setup
-
-Environment variable setup
-
-bcrypt setup
-
-JWT dependencies
-
-Cookie parser
-
-CORS
-
-Helmet
-
-express-validator
-
-express-rate-limit
-
-Nodemon
-
-Feature-based project structure
-
-Currently Being Implemented
-
-User model
-
-Authentication
-
-Registration API
-
-Login API
-
-Access token
-
-Refresh token
-
-Authentication middleware
-
-Upcoming
-
-Complete authentication flow
-
-Product CRUD
-
-Product ownership and seller authorization
-
-React frontend
-
-Cart
-
-Orders
-
-Payment integration
-
-Deployment
-
-Planned Application Flow
-
-Customer Flow
-
-Register / Login
-      ↓
-Browse Products
-      ↓
-Product Details
-      ↓
-Add to Cart
-      ↓
-Checkout
-      ↓
-Create Order
-      ↓
-Payment
-      ↓
-Order Confirmation
-      ↓
-Order History
-
-Seller Flow
-
-Login
-  ↓
-Seller Authorization
-  ↓
-Seller Dashboard
-  ↓
-Create Product
-  ↓
-Update Product
-  ↓
-Delete Product
-  ↓
-Manage Products
-
-Future Features
-
-After the core application is stable, additional features may include:
-
-Product search
-
-Product filtering
-
-Product sorting
-
-Pagination
-
-Categories
-
-Product image upload
-
-Wishlist
-
-Multiple shipping addresses
-
-Seller dashboard
-
-Order management
-
-Payment gateway
-
-Email notifications
-
-Admin functionality
-
-Automated tests
-
-Production logging
-
-Deployment
-
-CI/CD
-
-Project Goal
-
-The goal is to build a complete e-commerce application while understanding how the different parts of a real full-stack application work together.
-
-The project covers:
-
-REST API development
-
-Authentication
-
-Authorization
-
-JWT
-
-Refresh tokens
-
-Password security
-
-MongoDB
-
-Mongoose
-
-Request validation
-
-Middleware
-
-Product CRUD
-
-Cart management
-
-Order management
-
-React frontend
-
-API integration
-
-Git and GitHub
-
-Deployment
-
-The application is being built incrementally so that each feature can be understood, tested and improved before moving to the next one.
-
-Repository
-
-GitHub:
-
-https://github.com/umakantatech-eng/snitch-ecommerce
-
-License
-
-This project is currently being developed for learning and portfolio purposes.
+</div>
