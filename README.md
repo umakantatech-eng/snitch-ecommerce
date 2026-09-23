@@ -649,21 +649,6 @@ The goal is to understand and test each feature before moving to the next one.
 
 ---
 
-## Git Workflow
-
-```bash
-git status
-git add .
-git commit -m "your commit message"
-git push origin main
-```
-
-Repository:
-
-https://github.com/umakantatech-eng/snitch-ecommerce
-
----
-
 ## Project Goal
 
 The goal is to build a complete e-commerce application while understanding how the frontend, backend, database and authentication system work together.
